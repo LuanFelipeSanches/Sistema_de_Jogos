@@ -12,7 +12,8 @@
     <?php
     require_once "includes/banco.php";
     require_once "includes/funcoes.php";
-    $ordem = $_GET['0'] ?? "n";
+    $ordem = $_GET['o'] ?? "n";
+    $chave = $_GET['c'] ?? "";
     ?>
     <div id="corpo">
         <?php include_once 'topo.php'; ?>
@@ -23,6 +24,7 @@
             <a href="index.php?o=p"> Produtora </a>|
             <a href="index.php?o=n1"> Nota Alta </a> |
             <a href="index.php?o=n2"> Nota baixa </a> |
+            <a href="index.php"> Mostrar todos </a> |
             Buscar: <input type="text" name="c" size="10" maxlength="40" />
             <input type="submit" value="OK" />
         </form>
@@ -32,6 +34,10 @@
              j.capa  FROM jogos j JOIN generos g ON j.genero = g.cod
              JOIN produtoras p ON j.produtora = p.cod ";
 
+            if (!empty($chave)) {
+                $q .= "WHERE j.nome like '%$chave%' OR p.produtora like
+                 '%$chave%' OR g.genero like '%$chave' ";
+            }
             switch ($ordem) {
                 case "p":
                     $q .= " ORDER BY p.produtora";
