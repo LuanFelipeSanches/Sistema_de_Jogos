@@ -38,8 +38,7 @@
                 }
             }
             ?> </table>
-        <a href="index.php"><img src="icones/icoback.png">
-        </a>
+        <?php echo voltar()?>
     </div>
     <?php include_once "rodape.php"; ?>
 

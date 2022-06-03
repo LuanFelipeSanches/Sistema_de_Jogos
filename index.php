@@ -5,7 +5,8 @@
     <title>Título da Página</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="estilos/estilo.css" />
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 
 <body>
